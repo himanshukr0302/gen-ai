@@ -1,8 +1,8 @@
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
+import streamlit as st 
 
-# Load .env file
 load_dotenv() 
 
 # Verify that the key is being loaded
@@ -12,6 +12,12 @@ if not api_key:
 
 model = ChatGoogleGenerativeAI(model='gemini-1.5-flash')
 
-result = model.invoke('What is the capital of India')
+# adding ui elements
+st.header("Reseach Tool")
 
-print(result.content)
+user_input = st.text_input("Enter your prompt here")
+
+if st.button("Summarize"):
+    result = model.invoke(user_input)
+    st.write(result.content)
+
