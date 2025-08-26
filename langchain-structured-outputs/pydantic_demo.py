@@ -11,6 +11,6 @@ class Student(BaseModel):
 
 new_student = {'age': '32', 'email': 'demo@gmail.com'}
 
-student = Student(**new_student)
+student = Student(**new_student) #type:ignore
 
 print(student)
