@@ -15,7 +15,7 @@ llm = HuggingFaceEndpoint(
     repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
     task="conversational",
     huggingfacehub_api_token=hf_token
-)
+) # type: ignore
 
 # Wrap inside ChatHuggingFace (correct class for chat models)
 chat_model = ChatHuggingFace(llm=llm)
